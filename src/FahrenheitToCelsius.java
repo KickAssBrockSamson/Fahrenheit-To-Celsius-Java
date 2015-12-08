@@ -45,28 +45,28 @@ Copied and pasted the code and the output to the word document with the question
 
 */
 public class FahrenheitToCelsius {
-
+    static Scanner in = new Scanner(System.in);
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        final int SENTINEL = -1;
+        final String SENTINEL = "exit";
         boolean validValue = false;
         
         double fahrenheit = 0;
         double celsius = 0;
-        Scanner console = new Scanner(System.in);
+       
 
         String trash = "";
         
         while(!validValue) 
         {
             // Prompt User to input Numeric Value
-            System.out.print("Please enter temperature to convert or enter -1 to exit: ");
+            System.out.print("Please enter temperature to convert or enter \"exit\" to exit: ");
             
             //fahrenheit = ;
-            fahrenheit = getInt(-1, 100);
+            //99fahrenheit = getInt(-1, 100);
 
             // Validate the Input and process if correct
             if(in.hasNextDouble())
@@ -79,8 +79,11 @@ public class FahrenheitToCelsius {
 
                 // Output the Results
                 System.out.println("\n" + fahrenheit + " degrees Fahrenheit is " + celsius + " degrees Celsius");
-                validValue = true;
             }
+            else if(SENTINEL.equals(in.nextLine().trim())) 
+            {
+                validValue = true;
+            } 
             else // Bad input!
             {
                 // Clear the Pipe
@@ -88,5 +91,5 @@ public class FahrenheitToCelsius {
                 System.out.println(trash + " is not a valid degree in Fahrenheit. Try again.");
             }   
         }
-    }  
+    }   
 }
